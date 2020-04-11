@@ -3,7 +3,8 @@
     <h3>Firebase Data</h3>
     {{ firebaseData }}
 
-    <form>
+    <h3>Form Data</h3>
+    {{ formData }}
 
       <input type="text"   name="name">
       <input type="number" name="age">

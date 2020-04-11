@@ -46,6 +46,15 @@ export default {
     return {
       firebaseData: db.doc(docPath)
     }
+  created: async function() {
+    const doc = db.doc(docPath)
+    let data = (await doc.get()).data()
+
+    if (!data)
+      data = { name: '', age: '', email: '' }
+
+    this.formData = data
+    this.state = 'synced'
   }
 }
 </script>

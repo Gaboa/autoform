@@ -9,6 +9,9 @@
       <input type="number" name="age">
       <input type="email"  name="email">
 
+      <input type="text"   name="name"  v-model="formData.name"  />
+      <input type="number" name="age"   v-model="formData.age"   />
+      <input type="email"  name="email" v-model="formData.email" />
       <button type="submit">SUBMIT</button>
 
     </form>

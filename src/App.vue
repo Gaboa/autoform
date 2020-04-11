@@ -12,6 +12,18 @@
       <button type="submit">SUBMIT</button>
 
     </form>
+    <div v-if="state == 'synced'">
+      Firestore is synced
+  </div>
+    <div v-else-if="state == 'modified'">
+      Data is modified and will be synced later
+    </div>
+    <div v-else-if="state == 'error'">
+      Error!!! {{ this.errorMessage }}
+    </div>
+    <div v-else-if="state == 'loading'">
+      Loading...
+    </div>
   </div>
 </template>
 

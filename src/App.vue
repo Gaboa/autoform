@@ -46,6 +46,23 @@ export default {
     return {
       firebaseData: db.doc(docPath)
     }
+    async updateFirestore() {
+      try {
+        await db.doc(docPath).set(this.formData)
+        this.state = 'synced'
+      } catch (error) {
+        this.errorMessage = JSON.stringify(error)
+        this.state = 'error'
+      }
+    },
+    fieldUpdate() {
+      this.state = 'modified'
+      this.debouncedUpdate()
+    },
+    debouncedUpdate: 
+      debounce(function() {
+        this.updateFirestore()
+      }, 1500)
   created: async function() {
     const doc = db.doc(docPath)
     let data = (await doc.get()).data()
